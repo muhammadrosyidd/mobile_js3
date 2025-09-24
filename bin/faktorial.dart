@@ -12,7 +12,17 @@ void main() {
     if (number == -1) {
       print('Masukkan angka yang valid!');
     } else {
-      print('Angka yang dimasukkan: $number');
+      int result = calculateFactorial(number);
+      print('Faktorial dari $number adalah $result');
     }
   }
+}
+
+// Fungsi untuk menghitung faktorial
+int calculateFactorial(int number) {
+  int factorial = 1;
+  for (int i = 1; i <= number; i++) {
+    factorial *= i;
+  }
+  return factorial;
 }
