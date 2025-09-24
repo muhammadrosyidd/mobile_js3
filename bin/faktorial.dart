@@ -9,8 +9,8 @@ void main() {
   } else {
     int number = int.tryParse(input) ?? -1;
 
-    if (number == -1) {
-      print('Masukkan angka yang valid!');
+    if (number == -1 || number < 0) {
+      print('Masukkan angka yang valid (angka positif)!');
     } else {
       int result = calculateFactorial(number);
       print('Faktorial dari $number adalah $result');
@@ -18,10 +18,14 @@ void main() {
   }
 }
 
-// Fungsi untuk menghitung faktorial
+// Fungsi untuk menghitung faktorial dengan optimasi
 int calculateFactorial(int number) {
+  if (number == 0 || number == 1) { // Optimasi: Faktorial 0 dan 1 adalah 1
+    return 1;
+  }
+
   int factorial = 1;
-  for (int i = 1; i <= number; i++) {
+  for (int i = 2; i <= number; i++) { // Mulai dari 2 untuk optimasi
     factorial *= i;
   }
   return factorial;
